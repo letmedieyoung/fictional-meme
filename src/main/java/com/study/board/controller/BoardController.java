@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -26,7 +25,7 @@ public class BoardController {
     //작성
     @GetMapping("/board/write")
     public String boardWriteForm() {
-        return "boardwrite";
+        return "write";
     }
 
     @PostMapping("/board/writepro")
@@ -61,7 +60,7 @@ public class BoardController {
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
-        return "boardlist";
+        return "list";
     }
 
     // 상세 보기
@@ -84,7 +83,7 @@ public class BoardController {
     @GetMapping("/board/modify/{id}")
     public String boardModify(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("board", boardService.boardView(id));
-        return "boardmodify";
+        return "modify";
     }
 
     @PostMapping("/board/update/{id}")
